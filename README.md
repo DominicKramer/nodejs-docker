@@ -4,7 +4,7 @@
 
 This repository contains the source for the `gcr.io/google_appengine/nodejs` [docker](https://docker.com) image. This image can be used as the base image for running applications on [Google App Engine Managed VMs](https://cloud.google.com/appengine), [Google Container Engine](https://cloud.google.com/container-engine), or any other Docker host.
 
-This image is based on Debian Jessie and includes [nodejs](https://nodejs.org) and [npm](https://npmjs.org) installed from [nodejs.org](http://nodejs.org/download/).
+This image is based on Debian Jessie and includes [nodejs](https://nodejs.org) and [npm](https://npmjs.org) installed from [nodejs.org](http://nodejs.org/download/).  It also includes [Yarn](https://yarnpkg.com/).
 
 For a more thorough walk through of getting started with Node.js on Google Cloud Platform, please see the [documentation and guides](https://cloud.google.com/nodejs).
 
