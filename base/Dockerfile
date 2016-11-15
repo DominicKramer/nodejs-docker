@@ -12,6 +12,9 @@ ENV PATH $PATH:/nodejs/bin
 # Install semver, as required by the node version install script.
 RUN npm install https://storage.googleapis.com/gae_node_packages/semver.tar.gz
 
+# Install Yarn
+RUN npm install -g yarn
+
 # Add the node version install script
 ADD install_node /usr/local/bin/install_node
 
