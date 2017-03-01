@@ -1,4 +1,5 @@
 node_modules
 cloudbuild.yaml
 nodejs.yaml
+dist
 .DS_Store
