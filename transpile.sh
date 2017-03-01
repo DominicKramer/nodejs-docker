@@ -1,5 +1,5 @@
 #!/bin/bash
 
 rm -Rf dist
-rsync -av --progress . dist --exclude dist --exclude node_modules --exclude .git
+rsync -av --progress . dist --exclude dist --exclude node_modules --exclude .git --exclude '**/*.ts'
 gulp

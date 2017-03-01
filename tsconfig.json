@@ -1,7 +1,6 @@
 {
   "files": [
-    "builder/gen-dockerfile/src/**/*.ts",
-    "builder/gen-dockerfile/test/**/*.ts",
+    "builder/**/*.ts",
     "test/**/*.ts"
   ],
   "compilerOptions": {
