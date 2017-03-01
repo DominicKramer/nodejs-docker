@@ -1,16 +1,17 @@
 'use strict';
 
-const assert = require('assert');
-const spawn = require('child_process').spawn;
-const exec = require('child_process').exec;
-const request = require('request');
-const util = require('util');
-const uuid = require('node-uuid');
+import * as assert from 'assert';
+import * as request from 'request';
+import * as util from 'util';
+import * as uuid from 'node-uuid';
+
+import { spawn, exec } from 'child_process';
 
 describe('nodejs-docker', () => {
 
   it('serves traffic on 8080', (done) => {
-    runDocker('test/express', 8080, (host, callback) => {
+    runDocker('test/express', 8080, (host: string,
+                                     callback: (fn: () => void) => void) => {
       setTimeout(() => {
         request(`http://${host}:8080`, (err, res, body) => {
           if (err) {
@@ -30,7 +31,8 @@ describe('nodejs-docker', () => {
 /**
  * Start a docker process for the given test
  */
-function runDocker(tag, port, callback) {
+function runDocker(tag: string, port: number,
+                   callback: (host: string, cb: (fn: () => void) => void) => void) {
   let name = uuid.v4();
   let d = spawn('docker', [
     'run', '--rm', '-i', '--name', name, '-p', `${port}:${port}`, tag
@@ -60,7 +62,7 @@ function runDocker(tag, port, callback) {
     console.log('stopping docker process...');
     exec(`docker stop ${name}`, (err, stdout, stderr) => {
       if (err) {
-        console.error(`exec error: ${error}`);
+        console.error(`exec error: ${err}`);
       }
       console.log('docker process stopped.');
       callback();
